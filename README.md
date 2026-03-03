@@ -1,3 +1,24 @@
+# Ruby Hello World Recipe App
+
+<!-- #ZEROPS_EXTRACT_START:intro# -->
+A minimal [Ruby](https://www.ruby-lang.org/) web application built with [Sinatra](https://sinatrarb.com/) and [Puma](https://puma.io/), connected to [PostgreSQL](https://www.postgresql.org/) on [Zerops](https://zerops.io). Demonstrates idempotent database migrations and a health-check endpoint that queries live data.
+Used within [Ruby Hello World recipe](https://app.zerops.io/recipes/ruby-hello-world) for [Zerops](https://zerops.io) platform.
+<!-- #ZEROPS_EXTRACT_END:intro# -->
+
+⬇️ **Full recipe page and deploy with one-click**
+
+[![Deploy on Zerops](https://github.com/zeropsio/recipe-shared-assets/blob/main/deploy-button/light/deploy-button.svg)](https://app.zerops.io/recipes/ruby-hello-world?environment=small-production)
+
+![ruby cover](https://github.com/zeropsio/recipe-shared-assets/blob/main/covers/svg/cover-ruby.svg)
+
+## Integration Guide
+
+<!-- #ZEROPS_EXTRACT_START:integration-guide# -->
+
+### 1. Adding `zerops.yaml`
+The main application configuration file you place at the root of your repository, it tells Zerops how to build, deploy and run your application.
+
+```yaml
 zerops:
 
   # Production setup — bundle only runtime gems, deploy minimal
@@ -129,3 +150,5 @@ zerops:
       # For auto-reload during development:
       #   bundle exec rerun -- puma -p 8080 -b tcp://0.0.0.0
       start: zsc noop --silent
+```
+<!-- #ZEROPS_EXTRACT_END:integration-guide# -->
