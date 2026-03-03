@@ -26,6 +26,9 @@ class App < Sinatra::Base
   configure do
     set :bind, '0.0.0.0'
     set :port, ENV.fetch('PORT', 8080).to_i
+    # Disable host authorization so the app responds on Zerops
+    # subdomains and any custom domains without extra configuration.
+    set :protection, except: :host_authorization
   end
 
   # GET / — health check and greeting query.
