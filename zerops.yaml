@@ -59,8 +59,11 @@ zerops:
 
       envVariables:
         RACK_ENV: production
-        # Tell bundle exec where the vendored gems landed.
+        # Tell bundle exec where the vendored gems are and that
+        # the development group was excluded at build time —
+        # prevents Bundler from failing on missing dev gems.
         BUNDLE_PATH: vendor/bundle
+        BUNDLE_WITHOUT: development
         DB_NAME: db
         # Referencing variables: ${db_hostname} resolves to the
         # 'db' service's internal hostname — Zerops injects these
