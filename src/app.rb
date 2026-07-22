@@ -30,6 +30,11 @@ class App < Sinatra::Base
     # for Zerops subdomains and custom domains. rack-protection
     # skips the check entirely when the list is empty.
     set :host_authorization, permitted_hosts: []
+    # json_csrf 403s JSON responses whenever the Referer is
+    # cross-origin — e.g. following the subdomain link from the
+    # Zerops dashboard. The JSON-hijacking attack it guards
+    # against only affected legacy browsers, so exempt it.
+    set :protection, except: :json_csrf
   end
 
   # GET / — health check and greeting query.
